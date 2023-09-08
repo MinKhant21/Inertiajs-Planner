@@ -1,7 +1,7 @@
 <template>
     
         <div class="container mt-2 header-Debt">
-        <Link href="/store" class=" btn btn-sm btn-success ">Home</Link>
+        <Link href="/debt" class=" btn btn-sm btn-success ">Add</Link>
 
         <a class="btn btn-sm btn-dark text-white w-full">Debt People</a>
         <a href="" class="btn btn-sm btn-primary text-white">

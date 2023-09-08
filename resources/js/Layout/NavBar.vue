@@ -27,7 +27,11 @@
 
 <script>
 export default {
-    name:"NavBar"
+    name:"NavBar",
+    components:{
+
+
+    }
 }
 </script>
 

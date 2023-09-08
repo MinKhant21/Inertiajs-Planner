@@ -1,4 +1,7 @@
 <template>
+    <div v-if="$page.props.message" class="container bg-primary text-white-50" style="top:0;right:0;bottom:0;position: relative; width: 200px;padding: 10px;">
+            {{ $page.props.message }}
+        </div>
     <Layout>
         <Debt/>
     </Layout>
@@ -16,7 +19,8 @@ export default {
     },
     components: {
         Layout,
-        Debt
+        Debt,
+        
     }
 }
 </script>
