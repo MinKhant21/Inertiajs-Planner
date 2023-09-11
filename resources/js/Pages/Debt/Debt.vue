@@ -1,9 +1,13 @@
 <template>
-    
+    <Layout>
         <div class="container mt-2 header-Debt">
-        <Link href="/debt" class=" btn btn-sm btn-success ">Add</Link>
-
-        <a class="btn btn-sm btn-dark text-white w-full">Debt People</a>
+        <Link href="/debt-store" class=" btn btn-sm btn-success ">Add</Link>
+        <a href="" class="btn btn-sm btn-danger text-white">
+            <span>Debt People</span>
+            <span class="badge rounded-pill badge-notification bg-success">
+                {{ debtPeople.length}}
+            </span>
+        </a>
         <a href="" class="btn btn-sm btn-primary text-white">
             <span>History</span>
             <span class="badge rounded-pill badge-notification bg-danger">99</span>
@@ -14,73 +18,60 @@
     </section>
 <!--    List Debt-->
     <section class=" container mt-2">
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <input type="checkbox" class="form-checkbox">
-                <div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                    <h5>Kaung Min Khant</h5>
-                    Day - 20 . 3 . 2000
-                </div>
-                <div class="border p-4 rounded-lg">
-                    Rent - 2000 MMK <br>
-                    Paid - 1000 MMk <br>
-                    <hr />
-                    Left - 1000 MMK
-                </div>
-
-            </li>
-            <hr>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <input type="checkbox" class="form-checkbox">
-                <div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                    <h5>Kaung Min Khant</h5>
-                    Day - 20 . 3 . 2000
-                </div>
-                <div class="border p-4 rounded-lg">
-                    Rent - 2000 MMK <br>
-                    Paid - 1000 MMk <br>
-                    <hr />
-                    Left - 1000 MMK
-                </div>
-
-            </li>
-            <hr>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <input type="checkbox" class="form-checkbox">
-                <div>
-                    <span class="badge bg-primary rounded-pill">14</span>
-                    <h5>Kaung Min Khant</h5>
-                    Day - 20 . 3 . 2000
-                </div>
-                <div class="border p-4 rounded-lg">
-                    Rent - 2000 MMK <br>
-                    Paid - 1000 MMk <br>
-                    <hr />
-                    Left - 1000 MMK
-                </div>
-
-            </li>
-            <hr>
-        </ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Rent Amount</th>
+                <th scope="col">Paid Amount</th>
+                <th scope="col">Left Amount</th>
+                <th scope="col">Date</th>
+                <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="debt in debtPeople" :key="debt.id">
+                    <td>
+                        <span>{{debt.name}}</span>
+                    </td>
+                    <td>{{ debt.amount }} Ks</td>
+                    <td>0 Ks</td>
+                    <td>0 Ks</td>
+                    <td>Monday 2023</td>
+                    <td>
+                        <!-- <p class="btn btn-sm btn-success">Paid</p> -->
+                        <p class="btn btn-sm btn-danger">UnPaid</p>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
     </section>
     
+    </Layout>
     
 </template>
 
 <script>
 import { Link } from '@inertiajs/vue3'
+import Layout from '../../Layout/Layout.vue'
 export default {
-    name:"Debt",
+    name: "Debt",
+    props: ['debtPeople'],
     data(){
-        return{
-            showAddDebt:false
+        return {
+            showAddDebt: false,
+            showName:false
         }
+    },
+    mounted() {
+    
     },
     components:{
         Link,
-      
+        Layout,
+    },
+    methods: {
+       
     }
 }
 </script>

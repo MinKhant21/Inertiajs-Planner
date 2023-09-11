@@ -14,12 +14,15 @@ class DebtController extends Controller
     {
         $this->debtRepo = $debtRepo;
     }
+    public function show(){
+        $debtPeople = $this->debtRepo->getAll();
+        return Inertia::render('Debt/StoreDebt');
+    }
     public function index(Request $request)
     {
         if($request->isMethod('get')){
             $debtPeople = $this->debtRepo->getAll();
-            dd($debtPeople);
-            return Inertia::render('Debt/StoreDebt');
+            return Inertia::render('Debt/Debt',['debtPeople' => $debtPeople]);
         }
         if($request->isMethod('post')){
             $this->debtRepo->create($request);

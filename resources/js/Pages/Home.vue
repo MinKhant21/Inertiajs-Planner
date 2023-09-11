@@ -3,7 +3,7 @@
             {{ $page.props.message }}
         </div>
     <Layout>
-        <Debt/>
+        <h1>Home</h1>
     </Layout>
 </template>
 
