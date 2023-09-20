@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="container" style="width: 400px;">
+    <div class="container" style="width: 400px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;margin-top:20px">
         <div class="tab-content">
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
             <br>

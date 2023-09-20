@@ -1,10 +1,10 @@
 <template>
   <Layout>
-    <div class="container" style="width: 400px;">
+    <div class="container" style="width: 400px;box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;margin-top:20px">
         <div class="tab-content">
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
             <br>
-            <form>
+            <form @submit.prevent="Login">
             <div class="text-center mb-3">
                 <h5 type="button" class="mx-1">
                     Login form
@@ -13,13 +13,13 @@
             <!-- Email input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="loginName">Email or username</label>
-                <input type="email" id="loginName" class="form-control" />
+                <input type="email" id="loginName" v-model="loginForm.email" class="form-control" />
             </div>
             <!-- Password input -->
             <div class="form-outline mb-4">
                 <label class="form-label" for="loginPassword">Password</label>
 
-                <input type="password" id="loginPassword" class="form-control" />
+                <input type="password" id="loginPassword" v-model="loginForm.password" class="form-control" />
             </div>
             <!-- 2 column grid layout -->
             <div class="row mb-4">
@@ -55,9 +55,22 @@
 
 <script>
 import Layout from '../../Layout/Layout.vue';
-import { Link } from '@inertiajs/vue3'
+import { Link ,router} from '@inertiajs/vue3'
 
 export default {
+    data(){
+        return {
+            loginForm:{
+                email:"",
+                password:""
+            }
+        }
+    },
+    methods:{
+        Login(){
+            router.post('/login',this.loginForm)
+        }   
+    },
     components: { Layout ,Link}
 }
 </script>

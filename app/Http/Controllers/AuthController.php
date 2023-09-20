@@ -17,8 +17,8 @@ class AuthController extends Controller
             return Inertia::render('Components/Login');
         }
         if($request->isMethod('post')){
-            $this->UserRepo->create($request);
-            // return Inertia::render('Home');
+            
+            $this->UserRepo->check($request);
             return Inertia::render('Home')->with('message','Successfully Created');
         }
     }
