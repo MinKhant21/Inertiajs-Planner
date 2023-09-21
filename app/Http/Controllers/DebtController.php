@@ -30,4 +30,14 @@ class DebtController extends Controller
             return Inertia::render('Home')->with('message','Successfully Created');
         }
     }
+    public function store(Request $request){
+        if($request->isMethod('get')){
+            return Inertia::render('Debt/CreateDebt');
+        }
+        if($request->isMethod('post')){
+            $this->debtRepo->create($request);
+            // return Inertia::render('Home');
+            return Inertia::render('Home')->with('message','Successfully Created');
+        }
+    }
 }
